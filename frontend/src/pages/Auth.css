@@ -1,0 +1,54 @@
+.auth-form {
+  width: 25rem;
+  max-width: 80%;
+  margin: 5rem auto;
+}
+
+.form-control label,
+.form-control input {
+  width: 100%;
+  display: block;
+}
+
+.form-control label {
+  margin-bottom: 0.5rem;
+}
+
+.form-control input {
+  border-radius: 7px;
+  border: 0.2px solid #646464;
+  height: 25px;
+}
+
+.form-control textarea {
+  border-radius: 7px;
+  border: 0.2px solid #646464;
+}
+
+.form-control input:hover,
+.form-control input:active,
+.form-control input::selection {
+  border: 0.2px solid #505050;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-actions button {
+  background-color: #5101d1;
+  font: inherit;
+  border: 1px solid #5101d1;
+  border-radius: 10px;
+  padding: 0.25rem 1rem;
+  margin-left: 1rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+  color: white;
+  cursor: pointer;
+}
+
+.form-actions button:hover,
+.form-actions button:active {
+  background-color: #3d00a0;
+  border-color: #3d00a0;
+}
