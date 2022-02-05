@@ -13,10 +13,16 @@ const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const context = useContext(AuthContext);
 
+  /**
+   * It sets the state of the creating variable to true.
+   */
   const startCreateEventHandler = () => {
     setCreating(true);
   };
 
+  /**
+   * *Set the creating flag to false and clear the selected event.*
+   */
   const modalCancelHandler = () => {
     setCreating(false);
     setSelectedEvent(null);
@@ -26,6 +32,9 @@ const EventsPage = () => {
     fetchEvents();
   });
 
+  /**
+   * It fetches events from the server
+   */
   const fetchEvents = () => {
     const requestBody = {
       query: `
@@ -38,6 +47,7 @@ const EventsPage = () => {
                     date
                     creator {
                         _id
+                        name
                         email
                     }
                 }
@@ -82,18 +92,25 @@ const EventsPage = () => {
         description: "",
         date: "",
       },
+      /* The onSubmit function is called when the form is submitted. It takes the submitted values and
+      creates a new event.
+      
+      The requestBody object is used to send the mutation to the server. The mutation is defined in
+      the server.js file.
+      
+      The token is added to the request headers.
+      
+      The setEvents function is used to set the events state */
       onSubmit: async (submittedValues) => {
         const title = submittedValues.title;
         const price = +submittedValues.price;
         const description = submittedValues.description;
         const date = submittedValues.date;
 
-        const event = { title, price, description, date };
-        console.log(event);
         const requestBody = {
           query: `
             mutation {
-                createEvent(eventInput: {title: "${submittedValues.title}", description: "${submittedValues.description}", price: ${submittedValues.price}, date: "${submittedValues.date}"}) {
+                createEvent(eventInput: {title: "${title}", description: "${description}", price: ${price}, date: "${date}"}) {
                     _id
                     title
                     description
@@ -142,11 +159,20 @@ const EventsPage = () => {
       validationSchema: ValidationSchema,
     });
 
+  /**
+   * It finds the event in the events array that matches the eventId and sets the selectedEvent state
+   * to that event.
+   * @param eventId - The id of the event that was clicked on.
+   */
   const showDetailHandler = (eventId) => {
     const selectedEvent = events.find((e) => e._id === eventId);
     setSelectedEvent(selectedEvent);
   };
 
+  /**
+   * If the user is logged in, then book the event
+   * @returns The bookEvent mutation returns the updated event.
+   */
   const bookEventHandler = () => {
     if (!context.token) {
       setSelectedEvent(null);

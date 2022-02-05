@@ -5,7 +5,8 @@
 }
 
 .form-control label,
-.form-control input {
+.form-control input,
+.form-control select {
   width: 100%;
   display: block;
 }
@@ -14,7 +15,8 @@
   margin-bottom: 0.5rem;
 }
 
-.form-control input {
+.form-control input,
+.form-control select {
   border-radius: 7px;
   border: 0.2px solid #646464;
   height: 25px;
