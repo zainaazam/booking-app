@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken");
 
+/* If the request has an Authorization header, split it on spaces, grab the second item, and attempt to
+verify a JWT using the secret. If the JWT is verified, set req.isAuth to true and req.userId to the
+userId encoded in the token. If the JWT is not verified, set req.isAuth to false. */
 module.exports = (req, res, next) => {
   const authHeader = req.get("Authorization");
   if (!authHeader) {

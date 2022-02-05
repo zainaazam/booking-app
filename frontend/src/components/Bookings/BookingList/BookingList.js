@@ -1,6 +1,15 @@
 import React from "react";
 import "./BookingList.css";
 
+/**
+ * Create a list of bookings, each of which is a list item. 
+ * 
+ * Each list item has a booking's title and date. 
+ * 
+ * Each list item has a button that will delete the booking when clicked.
+ * @param props - the props object that is passed to the component
+ * @returns A list of booking items.
+ */
 const BookingList = (props) => {
   return (
     <ul className="bookings__list">

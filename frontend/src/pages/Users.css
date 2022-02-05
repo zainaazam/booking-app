@@ -1,0 +1,33 @@
+.searchBar {
+  display: flex;
+  width: 65%;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+.search {
+  margin: 80px auto 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.searchIcon {
+  position: relative;
+  top: 6px;
+  right: 35px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details p,
+.details button {
+  margin: 5px 0px;
+}

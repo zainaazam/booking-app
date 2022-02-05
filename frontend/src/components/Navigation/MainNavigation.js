@@ -3,6 +3,11 @@ import { NavLink } from "react-router-dom";
 import "./MainNavigation.css";
 import AuthContext from "../../context/auth-context";
 
+/**
+ * It renders the main navigation bar.
+ * @param props - The props that are passed to the component.
+ * @returns The MainNavigation component is returning a header element with a logo and a nav element.
+ */
 const MainNavigation = (props) => {
   return (
     <AuthContext.Consumer>
@@ -10,7 +15,7 @@ const MainNavigation = (props) => {
         return (
           <header className="main-navigation">
             <div className="main-navigation__logo">
-              <h1>EasyEvent</h1>
+              <h1>EasyAppointments</h1>
             </div>
             <nav className="main-navigation__items">
               <ul>
@@ -21,6 +26,9 @@ const MainNavigation = (props) => {
                 )}
                 <li>
                   <NavLink to="/events">Events</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/users">Users</NavLink>
                 </li>
                 {context.token && (
                   <React.Fragment>

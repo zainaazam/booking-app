@@ -1,6 +1,11 @@
 import React from "react";
 import "./Modal.css";
 
+/**
+ * It creates a modal dialog with a title, content, and buttons.
+ * @param props - The props object is a JavaScript object that contains all of the properties of the
+ * component.
+ */
 const Modal = (props) => (
   <div className="modal">
     <header className="modal__header">

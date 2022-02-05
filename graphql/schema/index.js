@@ -1,5 +1,10 @@
 const { buildSchema } = require("graphql");
 
+/* The schema is a collection of types and their fields. 
+
+The types are the blueprints for the data that will be stored in the database. 
+
+The fields are the properties of the data.  */
 module.exports = buildSchema(`
 type Booking {
     _id: ID!
@@ -19,6 +24,8 @@ type Event {
 type User {
   _id: ID!
   email: String!
+  name: String!
+  service: String
   password: String
   createdEvents: [Event!]
 }
@@ -35,11 +42,14 @@ input EventInput {
 }
 input UserInput {
   email: String!
+  name: String!
+  service: String
   password: String!
 }
 type RootQuery {
     events: [Event!]!
     bookings: [Booking!]!
+    users: [User!]!
     login(email: String!, password: String!): AuthData!
 }
 type RootMutation {
